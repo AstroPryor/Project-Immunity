@@ -57,7 +57,7 @@ project_immunity/
 Install dependencies:
 
 ```bash
-pip install watchdog==6.0.0 psutil==7.1.3 ttkbootstrap==1.20.2 cryptography==46.0.3 PyYAML==6.0.3
+pip install watchdog==6.0.0 psutil==7.1.3 ttkbootstrap==1.20.2 cryptography==46.0.3 PyYAML==6.0.3 python-json-logger==4.0.0
 ```
 
 ---
