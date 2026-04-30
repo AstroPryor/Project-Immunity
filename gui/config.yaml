@@ -1,0 +1,30 @@
+# Central config used by the GUI and runner.
+
+integration_mode: mock
+antivirus_path: "/opt/immunity/antivirus/antivirus_runner.py"
+ransomware_path: "/opt/immunity/ransomware/start_ransom.py"
+antivirus_timeout: 300
+ransomware_timeout: 300
+
+# Approved artifact hashes (for live runs)
+approved_artifacts:
+  - name: "ransomware_test_harness_v1"
+    path: "/opt/immunity/ransomware/start_ransom.py"
+    sha256: "REPLACE_WITH_APPROVED_HASH"
+
+#Fill in the expected ID for the isolated laptop VM.
+approved_vm_ids:
+  - "REPLACE_WITH_VM_ID"
+
+# Logging and storage
+logs_dir: "logs"
+reports_dir: "reports"
+quarantine_dir: "quarantine"
+
+# Safety: only run live in Capstone Tester
+require_live_env_var: true
+live_env_var_name: "ALLOW_LIVE_INTEGRATION"
+
+# Mock mode
+mock:
+  action_sleep: 0.5
