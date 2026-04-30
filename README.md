@@ -36,7 +36,7 @@ project_immunity/
 ├── monitor.py                           # Macrovirus detection engine
 ├── mitigation.py                        # Macrovirus mitigation engine
 │
-├── ransomware_simulator_v4.py           # Test threat — AES file encryptor (non-malicious)
+├── ransomware_simulator.py           # Test threat — AES file encryptor (non-malicious)
 ├── macro_attack.txt                     # Test threat — VBA macro spam script
 │
 ├── ransomware_antivirus_logs.log        # Runtime output (auto-generated)
@@ -165,7 +165,7 @@ File system event (watchdog)
 
 > ⚠️ All testing uses non-malicious artifacts on a dedicated dummy laptop. No real malware is used at any point.
 
-**Ransomware simulator** (`ransomware_simulator_v4.py`) — encrypts files in a target directory using AES-CBC, creates ransom notes, and supports `--decrypt` and `--cleanup` flags to restore the environment after testing.
+**Ransomware simulator** (`ransomware_simulator.py`) — encrypts files in a target directory using AES-CBC, creates ransom notes, and supports `--decrypt` and `--cleanup` flags to restore the environment after testing.
 
 **Macro attack** (`macro_attack.txt`) — VBA script that creates mass `.txt` files across Desktop, Documents, and Pictures when executed via a Word document.
 
