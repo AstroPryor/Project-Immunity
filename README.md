@@ -1,3 +1,14 @@
+# Project Immunity: Ransomware and Macro Attack Defense Platform
+
+## My Contribution
+
+This repository is a fork of the original team capstone project. My contributions focused on the defensive security components of the project, including ransomware behavior detection, file monitoring, backup and quarantine workflows, log analysis, and documentation for testing the tool in a controlled lab environment.
+
+I worked on this project as part of my senior capstone course, where the goal was to design and implement a defensive tool that could detect and respond to simulated ransomware and macro-based attack behavior.
+
+## Original Repository
+
+This project was originally developed as a team capstone project. The main repository is maintained by another team member.
 # Project Immunity
 
 A Python-based antivirus system that detects, quarantines, and mitigates ransomware and macro-based malware attacks in real time. Built as a capstone project at the University of North Texas.
@@ -5,7 +16,11 @@ A Python-based antivirus system that detects, quarantines, and mitigates ransomw
 **Team:** Capstone Bros — Astro Pryor, Bakr Alkhalidi, Jay Hernandez, Elli Gould, Grant Stautzenberger
 
 ---
+Original repository:
 
+```text
+(https://github.com/BakrA2/Project-Immunity)
+```
 ## Features
 
 - **Ransomware detection** — real-time file system monitoring using Shannon entropy analysis (measures file randomness; encrypted files score near 8.0), suspicious extensions matching, AES pattern scanning, ransom note detection, and Watchdog handlers
